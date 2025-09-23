@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion Example</title>
+    <link rel="stylesheet" href="accordion.css">
+    <style>
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Accordion Example</h1>
+        <p>This is an example of an accordion component using HTML and CSS.</p>
+        <h2>Default Accordion</h2>
+        <p>This accordion allows multiple items to be open at the same time.</p>
+        <div class="accordion">
+            <details open>
+                <summary>Accordion Item #1</summary>
+                <div class="accordion-body">
+                    <p>This is the first item's accordion body.</p>
+                </div>
+            </details>
+            <details>
+                <summary>Accordion Item #2</summary>
+                <div class="accordion-body">
+                    <p><strong>This is the second item’s accordion body.</strong></p>
+                    <p>It is hidden by default.</p>
+                </div>
+            </details>
+            <details>
+                <summary>Accordion Item #3</summary>
+                <div class="accordion-body">
+                    This is the third item's accordion body.
+                </div>
+            </details>
+        </div>
+        <h2>Accordion with Single Open Item</h2>
+        <p>This accordion allows only one item to be open at a time.</p>
+        <div class="accordion">
+            <details name="group">
+                <summary>Accordion Item #1</summary>
+                <div class="accordion-body">
+                    <p>This is the first item's accordion body.</p>
+                </div>
+            </details>
+            <details name="group">
+                <summary>Accordion Item #2</summary>
+                <div class="accordion-body">
+                    <p><strong>This is the second item’s accordion body.</strong></p>
+                    <p>It is hidden by default.</p>
+                </div>
+            </details>
+            <details name="group">
+                <summary>Accordion Item #3</summary>
+                <div class="accordion-body">
+                    This is the third item's accordion body.
+                </div>
+            </details>
+        </div>
+    </main>
+
+</body>
+
+</html>

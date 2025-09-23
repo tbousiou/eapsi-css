@@ -1,0 +1,136 @@
+/* Flipcards Component Stylesheet */
+
+.flipcard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+
+/* 3-column layout - needs medium screens */
+@media (min-width: 768px) {
+    .flipcard-grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 4-column layout - needs larger screens */
+@media (min-width: 1024px) {
+    .flipcard-grid.cols-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Responsive adjustments for different screen sizes */
+
+/* Mobile: All layouts become single column */
+@media (max-width: 767px) {
+
+    .flipcard-grid,
+    .flipcard-grid.cols-3,
+    .flipcard-grid.cols-4 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+}
+
+/* Tablet: 4-column becomes 2-column, others stay as intended */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .flipcard-grid.cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.flipcard {
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 12px;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+/* Hover effect to indicate interactivity */
+.flipcard:hover {
+    transform: translateY(-2px);
+}
+
+.flipcard:focus {
+    outline: 3px solid #003476;
+    outline-offset: 2px;
+}
+
+.flipcard-content {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    /* Default: square cards (1:1 ratio) */
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Aspect ratio modifier classes */
+.flipcard.wide .flipcard-content {
+    padding-top: 75%;
+    /* Cards wider than they are tall (4:3 ratio) */
+}
+
+.flipcard.xwide .flipcard-content {
+    padding-top: 56.25%;
+    /* Extra wide cards (16:9 ratio) */
+}
+
+.flipcard.tall .flipcard-content {
+    padding-top: 125%;
+    /* Cards taller than they are wide (4:5 ratio) */
+}
+
+
+
+.flipcard[aria-expanded="true"] .flipcard-content {
+    transform: rotateY(180deg);
+}
+
+.flipcard-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+}
+
+.flipcard:hover .flipcard-face {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.flipcard-front {
+    background: #ffffff;
+    color: #2d3748;
+}
+
+.flipcard-back {
+    background: #ffffff;
+    color: #2d3748;
+    transform: rotateY(180deg);
+    border: 2px solid #e2e8f0;
+    overflow-y: auto;
+}
+
+.flipcard-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.flipcard-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
