@@ -1,3 +1,15 @@
+/* EAPSI CSS Components Library - Combined */ 
+/* Generated on Δευ 09/02/2026 13:33:29,68 */ 
+ 
+/* General CSS */ 
+/* General css for the course pages stylesheet */
+
+div.eapsi-hlikiwmenoi {
+  font-size: 1.25rem ;
+} 
+/* C4L Components */ 
+/* CSS for the C4L components */
+
 /* Key concept */
 .c4lv-keyconcept {
     min-width: 200px;
@@ -383,10 +395,10 @@ c4lv-dodontcards-dont.c4l-full-width-variant {
     content: counter(section) ". ";
     font-weight: 700;
     color: #497ae9;
-}
-
-
+} 
+/* Accordion Component */ 
 /* Accordion Component */
+
 .accordion {
     margin: 32px auto;
     border: 1px solid #e0e0e0;
@@ -419,8 +431,8 @@ details[open] summary {
     padding: 16px;
     background: #fff;
     color: #222;
-}
-
+} 
+/* Flipcards Component */ 
 /* Flipcards Component Stylesheet */
 
 .flipcard-grid {

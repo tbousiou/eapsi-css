@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAPSI CSS Components - Demo Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 1rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .demo-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            border-color: #007acc;
+            box-shadow: 0 4px 12px rgba(0, 122, 204, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .demo-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #007acc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-description {
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>EAPSI CSS Components</h1>
+    <p>Explore the available component demonstrations below:</p>
+    
+    <div class="demo-grid">
+        <a href="c4l-demo.html" class="demo-card">
+            <div class="demo-title">Learning Components</div>
+            <p class="demo-description">Educational callout boxes, do/don't cards, learning outcomes, and example boxes designed for e-learning platforms.</p>
+        </a>
+        
+        <a href="flipcards-demo.html" class="demo-card">
+            <div class="demo-title">Flipcards</div>
+            <p class="demo-description">Interactive 3D flip animations with multiple aspect ratios and responsive grid layouts for engaging content presentation.</p>
+        </a>
+        
+        <a href="accordion-demo.html" class="demo-card">
+            <div class="demo-title">Accordions</div>
+            <p class="demo-description">Collapsible content sections with smooth animations and accessibility support for organizing information.</p>
+        </a>
+    </div>
+</body>
+</html>
