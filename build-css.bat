@@ -18,6 +18,10 @@ echo. >> eapsi-hlikiwmenoi.css
 
 echo /* Flipcards Component */ >> eapsi-hlikiwmenoi.css
 type flipcards.css >> eapsi-hlikiwmenoi.css
+echo. >> eapsi-hlikiwmenoi.css
+
+echo /* Simple Grid Component */ >> eapsi-hlikiwmenoi.css
+type simple-grid.css >> eapsi-hlikiwmenoi.css
 
 echo Combined CSS files successfully!
 pause

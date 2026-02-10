@@ -1,0 +1,55 @@
+/* Base grid class with shared properties and custom property support */
+.sg-grid {
+  display: grid;
+  gap: var(--sg-grid-gap, 20px);
+  grid-template-columns: var(--sg-grid-columns, 1fr);
+}
+
+/* Equal column layouts */
+.sg-cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.sg-cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Ratio-based layouts */
+.sg-cols-sidebar-main {
+  grid-template-columns: 1fr 2fr;
+}
+
+.sg-cols-main-sidebar {
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .sg-cols-2,
+  .sg-cols-3,
+  .sg-cols-sidebar-main,
+  .sg-cols-main-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Content alignment utilities */
+.sg-center {
+  text-align: center !important;
+}
+
+.sg-center-flex {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sg-center-vertical {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sg-center-horizontal {
+  display: flex !important;
+  justify-content: center !important;
+}

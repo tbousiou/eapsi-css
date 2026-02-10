@@ -1,13 +1,13 @@
-/* EAPSI CSS Components Library - Combined */ 
-/* Generated on Δευ 09/02/2026 13:33:29,68 */ 
- 
-/* General CSS */ 
+/* EAPSI CSS Components Library - Combined */
+/* Generated on Τρι 10 Φεβ 2026 19:24:39 EET */
+
+/* General CSS */
 /* General css for the course pages stylesheet */
 
 div.eapsi-hlikiwmenoi {
   font-size: 1.25rem ;
-} 
-/* C4L Components */ 
+}
+/* C4L Components */
 /* CSS for the C4L components */
 
 /* Key concept */
@@ -395,8 +395,8 @@ c4lv-dodontcards-dont.c4l-full-width-variant {
     content: counter(section) ". ";
     font-weight: 700;
     color: #497ae9;
-} 
-/* Accordion Component */ 
+}
+/* Accordion Component */
 /* Accordion Component */
 
 .accordion {
@@ -424,15 +424,15 @@ summary {
 
 details[open] summary {
     background: #e7f1ff;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .accordion-body {
     padding: 16px;
     background: #fff;
     color: #222;
-} 
-/* Flipcards Component */ 
+}
+/* Flipcards Component */
 /* Flipcards Component Stylesheet */
 
 .flipcard-grid {
@@ -568,4 +568,60 @@ details[open] summary {
     font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
+}
+/* Simple Grid Component */
+/* Base grid class with shared properties and custom property support */
+.sg-grid {
+  display: grid;
+  gap: var(--sg-grid-gap, 20px);
+  grid-template-columns: var(--sg-grid-columns, 1fr);
+}
+
+/* Equal column layouts */
+.sg-cols-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.sg-cols-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Ratio-based layouts */
+.sg-cols-sidebar-main {
+  grid-template-columns: 1fr 2fr;
+}
+
+.sg-cols-main-sidebar {
+  grid-template-columns: 2fr 1fr;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .sg-cols-2,
+  .sg-cols-3,
+  .sg-cols-sidebar-main,
+  .sg-cols-main-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Content alignment utilities */
+.sg-center {
+  text-align: center !important;
+}
+
+.sg-center-flex {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sg-center-vertical {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sg-center-horizontal {
+  display: flex !important;
+  justify-content: center !important;
 }

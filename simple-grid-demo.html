@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="simple-grid.css">
+</head>
+
+<body>
+    <h2>Two columns</h2>
+
+    <div class="sg-grid sg-cols-2">
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+
+    </div>
+    <h2>Three columns</h2>
+
+    <div class="sg-grid sg-cols-3">
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+    </div>
+
+    <h2>Sidebar + Main content</h2>
+    <div class="sg-grid sg-cols-sidebar-main">
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+    </div>
+
+    <h2>Main content + Sidebar</h2>
+    <div class="sg-grid sg-cols-main-sidebar">
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt incidunt quidem praesentium nisi
+                reprehenderit quae, accusantium accusamus quia dolorum sapiente. Obcaecati similique ab saepe mollitia
+                nulla. Enim totam ipsum earum?</p>
+        </div>
+    </div>
+
+    <h2>Center Alignment Examples</h2>
+    
+    <h3>Text Center (sg-center)</h3>
+    <div class="sg-grid sg-cols-2">
+        <div class="sg-center">
+            <h4>Centered Text</h4>
+            <p>This text is center-aligned using text-align: center.</p>
+        </div>
+        <div>
+            <h4>Normal Text</h4>
+            <p>This text has normal left alignment for comparison.</p>
+        </div>
+    </div>
+
+    <h3>Full Center (sg-center-flex)</h3>
+    <div class="sg-grid sg-cols-2">
+        <div class="sg-center-flex" style="min-height: 150px; background: #f0f0f0;">
+            <div>
+                <h4>Perfect Center</h4>
+                <p>Both horizontally and vertically centered.</p>
+            </div>
+        </div>
+        <div class="sg-center-flex" style="min-height: 150px; background: #e0e0e0;">
+            <button>Centered Button</button>
+        </div>
+    </div>
+
+    <h3>Vertical Center (sg-center-vertical)</h3>
+    <div class="sg-grid sg-cols-2">
+        <div class="sg-center-vertical" style="min-height: 120px; background: #f5f5f5;">
+            <div>
+                <h4>Left-aligned but vertically centered</h4>
+                <p>Text stays left-aligned but is vertically centered in the container.</p>
+            </div>
+        </div>
+        <div style="min-height: 120px; background: #eaeaea;">
+            <h4>Normal alignment</h4>
+            <p>Regular top alignment for comparison.</p>
+        </div>
+    </div>
+
+    <h3>Horizontal Center (sg-center-horizontal)</h3>
+    <div class="sg-grid sg-cols-3">
+        <div class="sg-center-horizontal">
+            <button>Centered Button</button>
+        </div>
+        <div class="sg-center-horizontal">
+            <img src="https://via.placeholder.com/100x60" alt="Centered Image">
+        </div>
+        <div class="sg-center-horizontal">
+            <div style="width: 80px; height: 80px; background: #007acc; border-radius: 50%;"></div>
+        </div>
+    </div>
+</body>
+
+</html>
