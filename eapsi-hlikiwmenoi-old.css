@@ -12,17 +12,6 @@ div.eapsi-hlikiwmenoi p {
 
 }
 
-div.eapsi-hlikiwmenoi .lo-title {
-    color: rgb(243, 163, 46) !important;
-    font-weight: 600 ;
-}
-
-div.eapsi-hlikiwmenoi h2 {
-    color: rgb(243, 163, 46) !important;
-    font-weight: 600 !important;
-}
-
-
 div.eapsi-hlikiwmenoi li {
     padding-left: 2.5%;
 }
@@ -32,22 +21,9 @@ div.eapsi-hlikiwmenoi summary {
     line-height: 2.4rem !important;
 }
 
-
 div.eapsi-hlikiwmenoi details p {
     padding-left: 2.5%;
     margin-top: 10px;
-}
-
-div.eapsi-hlikiwmenoi div.animation-video {
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    text-align: center;
-}
-
-div.eapsi-hlikiwmenoi div.animation-video p {
-     text-align: center;
 }
 
 
