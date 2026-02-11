@@ -1,0 +1,15 @@
+  .eapsi-row {
+    display: flex;
+    gap: 20px;
+  }
+
+  .eapsi-column {
+    flex: 1;    
+  }
+
+  @media (max-width: 768px) {
+    .eapsi-row {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }

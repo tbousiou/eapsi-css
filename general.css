@@ -3,3 +3,10 @@
 div.eapsi-hlikiwmenoi {
   font-size: 1.25rem ;
 }
+
+
+div.eapsi-hlikiwmenoi figcaption {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+}
