@@ -10,3 +10,13 @@ div.eapsi-hlikiwmenoi figcaption {
   font-size: 16px;
   color: #555;
 }
+
+
+div.eapsi-hlikiwmenoi ul li {
+  padding-left: 0.5rem;
+}
+
+.img-card {
+  border-radius: 0.5rem;;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

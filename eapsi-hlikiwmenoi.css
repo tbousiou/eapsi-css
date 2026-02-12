@@ -1,13 +1,30 @@
-/* EAPSI CSS Components Library - Combined */
-/* Generated on Τρι 10 Φεβ 2026 19:24:39 EET */
-
-/* General CSS */
+/* EAPSI CSS Components Library - Combined */ 
+/* Generated on Πεμ 12/02/2026 11:19:28,38 */ 
+ 
+/* General CSS */ 
 /* General css for the course pages stylesheet */
 
 div.eapsi-hlikiwmenoi {
   font-size: 1.25rem ;
 }
-/* C4L Components */
+
+
+div.eapsi-hlikiwmenoi figcaption {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #555;
+}
+
+
+div.eapsi-hlikiwmenoi ul li {
+  padding-left: 0.5rem;
+}
+
+.img-card {
+  border-radius: 0.5rem;;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} 
+/* C4L Components */ 
 /* CSS for the C4L components */
 
 /* Key concept */
@@ -395,8 +412,8 @@ c4lv-dodontcards-dont.c4l-full-width-variant {
     content: counter(section) ". ";
     font-weight: 700;
     color: #497ae9;
-}
-/* Accordion Component */
+} 
+/* Accordion Component */ 
 /* Accordion Component */
 
 .accordion {
@@ -431,8 +448,8 @@ details[open] summary {
     padding: 16px;
     background: #fff;
     color: #222;
-}
-/* Flipcards Component */
+} 
+/* Flipcards Component */ 
 /* Flipcards Component Stylesheet */
 
 .flipcard-grid {
@@ -522,7 +539,6 @@ details[open] summary {
 }
 
 
-
 .flipcard[aria-expanded="true"] .flipcard-content {
     transform: rotateY(180deg);
 }
@@ -560,7 +576,7 @@ details[open] summary {
 }
 
 .flipcard-emoji {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
 }
 
@@ -568,8 +584,8 @@ details[open] summary {
     font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
-}
-/* Simple Grid Component */
+} 
+/* Simple Grid Component */ 
 /* Base grid class with shared properties and custom property support */
 .sg-grid {
   display: grid;

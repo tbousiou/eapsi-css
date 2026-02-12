@@ -87,7 +87,6 @@
 }
 
 
-
 .flipcard[aria-expanded="true"] .flipcard-content {
     transform: rotateY(180deg);
 }
@@ -125,7 +124,7 @@
 }
 
 .flipcard-emoji {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
 }
 

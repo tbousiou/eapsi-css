@@ -12,8 +12,13 @@ div.eapsi-hlikiwmenoi p {
 
 }
 
-div.eapsi-hlikiwmenoi li {
-    padding-left: 2.5%;
+div.eapsi-hlikiwmenoi ul li {
+  padding-left: 0.5rem;
+}
+
+.img-card {
+  border-radius: 0.5rem;;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 div.eapsi-hlikiwmenoi summary {
