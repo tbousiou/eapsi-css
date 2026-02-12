@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive CSS Only Accordion &amp; Tabs Demo</title>
+  <style>
+    .tabs {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .tabs label {
+      -webkit-box-ordinal-group: 2;
+      -webkit-order: 1;
+      -ms-flex-order: 1;
+      order: 1;
+      display: block;
+      padding: 1rem 2rem;
+      margin-right: 0.2rem;
+      cursor: pointer;
+      background: #90CAF9;
+      font-weight: bold;
+      -webkit-transition: background ease 0.2s;
+      transition: background ease 0.2s;
+    }
+
+    .tabs .tab {
+      -webkit-box-ordinal-group: 100;
+      -webkit-order: 99;
+      -ms-flex-order: 99;
+      order: 99;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      width: 100%;
+      display: none;
+      padding: 1rem;
+      background: #fafafa;
+    }
+
+    .tabs input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .tabs input[type="radio"]:checked+label {
+      background: #fafafa;
+    }
+
+    .tabs input[type="radio"]:checked+label+.tab {
+      display: block;
+    }
+
+    @media (max-width: 45em) {
+
+      .tabs .tab,
+      .tabs label {
+        -webkit-box-ordinal-group: NaN;
+        -webkit-order: initial;
+        -ms-flex-order: initial;
+        order: initial;
+      }
+
+      .tabs label {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 0.2rem;
+      }
+    }
+
+    /**
+ * Generic Styling
+*/
+
+    body {
+      background: #3498DB;
+      padding: 10vw;
+      font-family: "Roboto", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 60rem;
+      margin: 0 auto;
+      font-size: 112%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Responsive CSS Only Accordion & Tabs Demo</h1>
+  
+  </div>
+  <div class="tabs">
+    <input type="radio" name="tabs" id="tabone" checked="checked">
+    <label for="tabone">Tab One</label>
+    <div class="tab">
+      <h1>Tab One Content</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+    </div>
+    <input type="radio" name="tabs" id="tabtwo">
+    <label for="tabtwo">Tab Two</label>
+    <div class="tab">
+      <h1>Tab Two Content</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.</p>
+    </div>
+    <input type="radio" name="tabs" id="tabthree">
+    <label for="tabthree">Tab Three</label>
+    <div class="tab">
+      <h1>Tab Three Content</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+  </div>
+
+</body>
+
+</html>

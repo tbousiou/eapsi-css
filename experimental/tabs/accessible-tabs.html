@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Tab Navigation - Εγκατάσταση Google Maps</title>
+    <style>
+        /* === ΒΑΣΙΚΟ CONTAINER === */
+        .tab-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* === ΚΡΥΦΑ RADIO INPUTS === */
+        /* Τα κρύβουμε οπτικά αλλά όχι από screen readers */
+        .tab-container input[type="radio"] {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* === TAB BAR === */
+        .tab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            border-bottom: 2px solid #ddd;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        /* === TAB BUTTONS (labels) === */
+        .tab-list label {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            background-color: #e8e8e8;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 0.25rem 0.25rem 0 0;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: #666;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        /* Hover state */
+        .tab-list label:hover {
+            background-color: #d8d8d8;
+            color: #333;
+            border-color: #bbb;
+        }
+
+        /* Focus state - σημαντικό για keyboard navigation */
+        .tab-container input[type="radio"]:focus + label {
+            outline: 2px solid #0066cc;
+            outline-offset: -2px;
+            z-index: 1;
+        }
+
+        /* Ενεργό tab - απλό styling */
+        .tab-container input[type="radio"]:checked + label {
+            background-color: #fff;
+            color: #0066cc;
+            border-color: #0066cc;
+            font-weight: 600;
+        }
+
+        /* Additional styling for aria-selected true state */
+        .tab-list label[aria-selected="true"] {
+            background-color: #fff !important;
+            color: #0066cc !important;
+            border-color: #0066cc !important;
+            font-weight: 600 !important;
+        }
+
+        /* === TAB PANELS === */
+        .tab-panels {
+            position: relative;
+        }
+
+        .tab-panel {
+            display: none;
+            padding: 1.5rem;
+            animation: fadeIn 0.25s ease-in;
+        }
+
+        /* Εμφάνιση του ενεργού panel */
+        #tab-android:checked ~ .tab-panels #panel-android,
+        #tab-iphone:checked ~ .tab-panels #panel-iphone,
+        #tab-computer:checked ~ .tab-panels #panel-computer {
+            display: block;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 600px) {
+            .tab-list label {
+                flex: 1 1 auto;
+                text-align: center;
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* === STYLING ΓΙΑ ΠΕΡΙΕΧΟΜΕΝΟ (προαιρετικό) === */
+        .tab-panel h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .tab-panel ol,
+        .tab-panel ul {
+            line-height: 1.7;
+            padding-left: 1.5rem;
+        }
+
+        .tab-panel li {
+            margin-bottom: 0.75rem;
+        }
+
+        .tab-panel strong {
+            color: #0066cc;
+        }
+
+        .tab-panel p {
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+
+        /* === ΒΑΣΙΚΟ STYLING ΓΙΑ DEMO === */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                         'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 2rem 1rem;
+            background-color: #fafafa;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        /* Αυτό το styling μπορεί να αφαιρεθεί σε production */
+        .tab-container {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tabContainer = document.querySelector('.tab-container');
+    const tabInputs = tabContainer.querySelectorAll('input[type="radio"]');
+    const tabLabels = tabContainer.querySelectorAll('label[role="tab"]');
+    
+    // Function to update tab states
+    function updateTabStates(activeInput) {
+        tabInputs.forEach((input, index) => {
+            const label = tabLabels[index];
+            const isActive = input === activeInput;
+            
+            // Update aria-selected
+            label.setAttribute('aria-selected', isActive.toString());
+            
+            // Update tabindex for keyboard navigation
+            label.setAttribute('tabindex', isActive ? '0' : '-1');
+        });
+    }
+    
+    // Handle tab clicks
+    tabInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            if (this.checked) {
+                updateTabStates(this);
+            }
+        });
+    });
+    
+    // Handle keyboard navigation
+    tabLabels.forEach(label => {
+        label.addEventListener('keydown', function(e) {
+            const currentIndex = Array.from(tabLabels).indexOf(this);
+            let newIndex = currentIndex;
+            
+            switch (e.key) {
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    newIndex = currentIndex > 0 ? currentIndex - 1 : tabLabels.length - 1;
+                    break;
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    newIndex = currentIndex < tabLabels.length - 1 ? currentIndex + 1 : 0;
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    newIndex = 0;
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    newIndex = tabLabels.length - 1;
+                    break;
+                default:
+                    return;
+            }
+            
+            // Focus and activate the new tab
+            const newInput = tabInputs[newIndex];
+            const newLabel = tabLabels[newIndex];
+            
+            newInput.checked = true;
+            newLabel.focus();
+            updateTabStates(newInput);
+        });
+    });
+    
+    // Initialize with the first checked tab
+    const checkedInput = tabContainer.querySelector('input[type="radio"]:checked');
+    if (checkedInput) {
+        updateTabStates(checkedInput);
+    }
+});
+</script>
+
+    <h1 class="page-title">Πώς να εγκαταστήσετε το Google Maps</h1>
+
+    <div class="tab-container">
+        
+        <!-- Radio inputs για έλεγχο tabs -->
+        <input 
+            type="radio" 
+            name="device-tabs" 
+            id="tab-android" 
+            checked 
+            aria-label="Οδηγίες για Android">
+        
+        <input 
+            type="radio" 
+            name="device-tabs" 
+            id="tab-iphone" 
+            aria-label="Οδηγίες για iPhone">
+        
+        <input 
+            type="radio" 
+            name="device-tabs" 
+            id="tab-computer" 
+            aria-label="Οδηγίες για Υπολογιστή">
+
+        <!-- Tab List (navigation) -->
+        <ul class="tab-list" role="tablist" aria-label="Επιλογή συσκευής">
+            <li role="presentation">
+                <label 
+                    for="tab-android" 
+                    role="tab" 
+                    aria-selected="true" 
+                    aria-controls="panel-android"
+                    tabindex="0">
+                    📱 Android
+                </label>
+            </li>
+            <li role="presentation">
+                <label 
+                    for="tab-iphone" 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="panel-iphone"
+                    tabindex="-1">
+                    🍎 iPhone
+                </label>
+            </li>
+            <li role="presentation">
+                <label 
+                    for="tab-computer" 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="panel-computer"
+                    tabindex="-1">
+                    💻 Υπολογιστής
+                </label>
+            </li>
+        </ul>
+
+        <!-- Tab Panels (περιεχόμενο) -->
+        <div class="tab-panels">
+            
+            <section 
+                id="panel-android" 
+                class="tab-panel" 
+                role="tabpanel" 
+                aria-labelledby="tab-android"
+                tabindex="0">
+                <h2>Εγκατάσταση Google Maps σε Android</h2>
+                <ol>
+                    <li>Ανοίξτε το <strong>Google Play Store</strong> στη συσκευή σας</li>
+                    <li>Πληκτρολογήστε <strong>"Google Maps"</strong> στη γραμμή αναζήτησης</li>
+                    <li>Πατήστε στο εικονίδιο της εφαρμογής Google Maps</li>
+                    <li>Πατήστε το κουμπί <strong>"Εγκατάσταση"</strong></li>
+                    <li>Περιμένετε να ολοκληρωθεί η λήψη και η εγκατάσταση</li>
+                    <li>Πατήστε <strong>"Άνοιγμα"</strong> για να ξεκινήσετε τη χρήση</li>
+                </ol>
+                <p><strong>💡 Σημείωση:</strong> Η εφαρμογή είναι δωρεάν και απαιτεί σύνδεση στο Internet.</p>
+            </section>
+
+            <section 
+                id="panel-iphone" 
+                class="tab-panel" 
+                role="tabpanel" 
+                aria-labelledby="tab-iphone"
+                tabindex="0">
+                <h2>Εγκατάσταση Google Maps σε iPhone</h2>
+                <ol>
+                    <li>Ανοίξτε το <strong>App Store</strong> στο iPhone σας</li>
+                    <li>Πατήστε στην καρτέλα <strong>"Αναζήτηση"</strong> στο κάτω μέρος</li>
+                    <li>Πληκτρολογήστε <strong>"Google Maps"</strong> στη γραμμή αναζήτησης</li>
+                    <li>Πατήστε στην εφαρμογή Google Maps από τα αποτελέσματα</li>
+                    <li>Πατήστε το εικονίδιο <strong>☁️ (Get)</strong> ή το κουμπί τιμής</li>
+                    <li>Επιβεβαιώστε με Face ID, Touch ID ή τον κωδικό σας</li>
+                    <li>Περιμένετε την εγκατάσταση και πατήστε <strong>"Άνοιγμα"</strong></li>
+                </ol>
+                <p><strong>💡 Συμβουλή:</strong> Μπορείτε επίσης να χρησιμοποιήσετε το Siri λέγοντας "Download Google Maps".</p>
+            </section>
+
+            <section 
+                id="panel-computer" 
+                class="tab-panel" 
+                role="tabpanel" 
+                aria-labelledby="tab-computer"
+                tabindex="0">
+                <h2>Χρήση Google Maps σε Υπολογιστή</h2>
+                <p>Το Google Maps δεν απαιτεί εγκατάσταση στον υπολογιστή - χρησιμοποιείται μέσω web browser.</p>
+                <ol>
+                    <li>Ανοίξτε τον browser σας (Chrome, Firefox, Edge, Safari)</li>
+                    <li>Επισκεφτείτε τη διεύθυνση: <strong>maps.google.com</strong></li>
+                    <li>Συνδεθείτε με τον λογαριασμό Google σας (προαιρετικό)</li>
+                    <li>Αναζητήστε τοποθεσίες, δείτε οδηγίες και πολλά άλλα</li>
+                </ol>
+                <p><strong>💡 Προαιρετικά:</strong></p>
+                <ul>
+                    <li>Μπορείτε να δημιουργήσετε συντόμευση στην επιφάνεια εργασίας</li>
+                    <li>Στο Chrome: μενού (⋮) → <strong>"Εγκατάσταση Google Maps"</strong> (PWA)</li>
+                    <li>Θα λειτουργεί σαν εφαρμογή χωρίς να ανοίγει browser tab</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+</body>
+</html>
