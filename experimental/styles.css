@@ -4,12 +4,59 @@
   }
 
   .eapsi-column {
-    flex: 1;    
+    flex: 1;
   }
 
   @media (max-width: 768px) {
     .eapsi-row {
       flex-direction: column;
       gap: 20px;
+    }
+  }
+
+
+  .platform-section {
+    margin-bottom: 50px;
+  }
+
+  .platform-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .platform-content {
+    padding-right: 20px;
+  }
+
+  .platform-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .platform-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+
+  /* Responsive: Στοίβαγμα στηλών για μικρές οθόνες */
+  @media (max-width: 768px) {
+    .platform-container {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .platform-content {
+      padding-right: 0;
+    }
+
+    .platform-image {
+      order: 2;
     }
   }
