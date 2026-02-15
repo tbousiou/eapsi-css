@@ -22,5 +22,13 @@ echo "" >> eapsi-hlikiwmenoi.css
 
 echo "/* Simple Grid Component */" >> eapsi-hlikiwmenoi.css
 cat simple-grid.css >> eapsi-hlikiwmenoi.css
+echo "" >> eapsi-hlikiwmenoi.css
+
+echo "/* Tab Component */" >> eapsi-hlikiwmenoi.css
+cat tab-component.css >> eapsi-hlikiwmenoi.css
+echo "" >> eapsi-hlikiwmenoi.css
+
+echo "/* Custom Table Component */" >> eapsi-hlikiwmenoi.css
+cat custom-table.css >> eapsi-hlikiwmenoi.css
 
 echo "Combined CSS files successfully!"

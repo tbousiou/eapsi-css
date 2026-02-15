@@ -1,0 +1,78 @@
+/* Tab Component Styles */
+.eapsi-tabs {
+  container-type: inline-size; /* or just 'container: inline-size' */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eapsi-tabs label {
+  order: 1;
+  display: block;
+  padding: 1rem 2rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background ease 0.2s;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  
+}
+
+.eapsi-tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem 0;
+  
+}
+
+.eapsi-tabs input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.eapsi-tabs input[type="radio"]:checked+label {
+  color: blue;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid blue;
+}
+
+.eapsi-tabs input[type="radio"]:checked+label+.tab {
+  display: block;
+}
+
+/* Responsive: Stack tabs vertically on mobile */
+/* @media (max-width: 768px) {
+
+  .eapsi-tabs .tab,
+  .eapsi-tabs label {
+    order: initial;
+  }
+
+  .eapsi-tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+    border-radius: 0;
+  }
+
+  .eapsi-tabs .tab {
+    margin-top: 0;
+  }
+} */
+
+/* Alternative: Use container queries for true component responsiveness */
+@container (max-width: 600px) {
+
+  .eapsi-tabs .tab,
+  .eapsi-tabs label {
+    order: initial;
+  }
+
+  .eapsi-tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
